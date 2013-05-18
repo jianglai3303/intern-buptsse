@@ -1,0 +1,73 @@
+.white-well
+  .legend 实习志愿填报
+  table.table.table-bordered.table-striped.table-hover
+    colgroup
+      col.span6
+      col.span6
+    thead
+        tr
+          th 志愿
+          th 选择
+        tbody
+        - var position =[
+        -{
+        - company: {
+        -   name: "XXXX公司"
+        - },
+        - title: "攻城师",
+        - applied: [{realname: "路人甲", _id: "UserXXX"}],
+        - need: 8,
+        - created_at_str: "2014-02-03",
+        - creator: {
+        -   realname: "厉害的导师"
+        - },
+        -},
+        -{
+        - company: {
+        -   name: "WWWW公司"
+        - },
+        - title: "攻城师",
+        - applied: [{realname: "路人甲", _id: "UserXXX"}],
+        - need: 8,
+        - created_at_str: "2014-02-03",
+        - creator: {
+        -   realname: "厉害的导师"
+        - },
+        -},
+        -{
+        - company: {
+        -   name: "OOOO公司"
+        - },
+        - title: "攻城师",
+        - applied: [{realname: "路人甲", _id: "UserXXX"}],
+        - need: 8,
+        - created_at_str: "2014-02-03",
+        - creator: {
+        -   realname: "厉害的导师"
+        - },
+        -}
+        -];
+          form
+            tr
+              td 第一志愿
+              td             
+                select
+                  each i in position
+                    option #{i.company.name} - #{i.title}
+            tr
+              td 第二志愿
+              td
+                select
+                  each i in position
+                    option #{i.company.name} - #{i.title}
+            tr
+              td 第三志愿
+              td
+                select
+                  each i in position
+                    option #{i.company.name} - #{i.title}
+            tr
+              td
+              td
+                button.btn.btn-primary(type="submit") 保存
+      

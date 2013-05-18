@@ -3,7 +3,6 @@
 
     $("#dashboard .sidebar ul li").removeClass('active');
     $("#dashboard .sidebar ul li#nav-home").addClass('active');
-
     $("#task-panel").children().remove();
 
     $.get('/view/dashboard/home.js', function (code) {

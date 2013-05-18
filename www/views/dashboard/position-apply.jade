@@ -31,7 +31,8 @@
         th 人数
         th 发布日期
     tbody
-      - var position = [{
+      - var position =[
+      -{
       - company: {
       -   name: "XXXX公司"
       - },
@@ -42,7 +43,20 @@
       - creator: {
       -   realname: "厉害的导师"
       - },
-      - }];
+      -},
+      -{
+      - company: {
+      -   name: "WWW公司"
+      - },
+      - title: "攻城师",
+      - applied: [{realname: "路人甲", _id: "UserXXX"}],
+      - need: 8,
+      - created_at_str: "2014-02-03",
+      - creator: {
+      -   realname: "厉害的导师"
+      - },
+      -}
+      -];
       each i in position
         tr
           td #{i.company.name} - #{i.title}
