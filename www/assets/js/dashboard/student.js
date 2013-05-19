@@ -7,7 +7,7 @@
     var createView = function () {
         $("#task-panel").children().remove();
         $.get('/view/dashboard/student.js', function (code) {
-            $view = $(eval(code)());
+            $view = $(eval(code)(data));
             getView($view);
             $('tr', $view).click(function () {
                 $("#task-panel").children().remove();

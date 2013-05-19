@@ -8,6 +8,7 @@
  *
  */
 .datepicker {
+  z-index: 9999;
   padding: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -299,3 +300,7 @@
   width: 16px;
   height: 16px;
 }
+.centered{
+  margin-top: 10px;
+}
+

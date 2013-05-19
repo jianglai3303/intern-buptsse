@@ -11,24 +11,23 @@
         div(data-label="编号") #{profile.id}
         div(data-label="电话") #{profile.phone}
         div(data-label="邮箱") #{profile.email}
-        div(data-label="身份") #{role}
     .logout
       a.btn.btn-inverse.btn-normal(href="#login") 注销
     ul.nav.nav-list
       li.nav-header 位置
-      li#nav-home.phase-all.student.professor.admin.active: a(href="#dashboard/home")
+      li#nav-home.phase-all.student.professor.active: a(href="#dashboard/new")
         i.icon-home
         | 首页
-      li#nav-position.phase1.phase2.phase3.phase4.professor.student.admin: a(href="#dashboard/position")
+      li#nav-position.phase1.phase2.phase3.phase4.professor.student: a(href="#dashboard/position")
         i.icon-th-list
         | 实习职位
-      li#nav-student.phase5.phase6.phase7.professor.admin: a(href="#dashboard/student")
+      li#nav-student.phase5.phase6.phase7.professor: a(href="#dashboard/student")
         i.icon-user
         | 学生管理
-      li#nav-intern.phase-all.student.admin: a(href="#dashboard/intern")
+      li#nav-intern.phase-all.student: a(href="#dashboard/intern")
         i.icon-star
         | 实习信息
-      li#nav-setting.phase-all.professor.student.admin: a(href="#dashboard/setting")
+      li#nav-setting.phase-all.professor.student: a(href="#dashboard/setting")
         i.icon-cog
         | 设置
       li.divider.hide
@@ -38,5 +37,5 @@
 
   .span8
     #task-panel
-      include dashboard/home
+      include dashboard/new
 
