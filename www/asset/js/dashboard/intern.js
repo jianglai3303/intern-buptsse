@@ -2,10 +2,11 @@
 (function (data, $) {
 
     $("#dashboard .sidebar ul li").removeClass('active');
-    $("#dashboard .sidebar ul li#nav-home").addClass('active');
+    $("#dashboard .sidebar ul li#nav-intern").addClass('active');
+
     $("#task-panel").children().remove();
 
-    $.get('/view/dashboard/home.js', function (code) {
+    $.get('/ui/dashboard/intern.js', function (code) {
         $view = $(eval(code)(data));
         getView($view);
     });
