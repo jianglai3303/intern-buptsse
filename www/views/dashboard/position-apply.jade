@@ -16,52 +16,5 @@
     .alert.alert-info
       | 下表列出了您发布的所有实习实训职位信息，
       | 点击条目查看志愿实习的学生
-
-  table.table.table-bordered.table-striped.table-hover
-    colgroup
-      col.span6
-      col.span2
-      col.span2
-      col.span2
-    thead
-      tr
-        th 职务
-        if role == 'student'
-          th 导师
-        th 人数
-        th 发布日期
-    tbody
-      - var position =[
-      -{
-      - company: {
-      -   name: "XXXX公司"
-      - },
-      - title: "攻城师",
-      - applied: [{realname: "路人甲", _id: "UserXXX"}],
-      - need: 8,
-      - created_at_str: "2014-02-03",
-      - creator: {
-      -   realname: "厉害的导师"
-      - },
-      -},
-      -{
-      - company: {
-      -   name: "WWW公司"
-      - },
-      - title: "攻城师",
-      - applied: [{realname: "路人甲", _id: "UserXXX"}],
-      - need: 8,
-      - created_at_str: "2014-02-03",
-      - creator: {
-      -   realname: "厉害的导师"
-      - },
-      -}
-      -];
-      each i in position
-        tr
-          td #{i.company.name} - #{i.title}
-          if role == 'student'
-            td #{i.creator.realname}
-          td #{i.applied.length} / #{i.need}
-          td #{i.created_at_str}
-            i.icon-chevron-right.pull-right
+  
+  include position-items 

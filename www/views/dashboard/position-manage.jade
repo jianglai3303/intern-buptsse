@@ -10,20 +10,4 @@
     |  职位准备阶段结束之后将不能更改下表的信息
   .btn-toolbar.clearfix
     button.btn.btn-primary.pull-right 新职位
-  table.table.table-bordered.table-striped.table-hover
-    colgroup
-      col.span8
-      col.span2
-      col.span2
-    thead
-      tr
-        th 职务
-        th 人数
-        th 发布日期
-    tbody
-      each i in jobs
-        tr
-          td #{i.company.name} - #{i.title}
-          td #{i.need}
-          td #{i.created_at_str}
-            i.icon-chevron-right.pull-right
+  include position-items

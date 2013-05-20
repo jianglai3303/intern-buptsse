@@ -12,7 +12,12 @@
         $view.children('form').submit(function () {
             data.role = $('.username input').val();
             console.log(data.role);
-            window.location.hash = "#dashboard";
+            if (data.role == 'student'){
+                window.location.hash = "#dashboard";
+            }
+            else if (data.role == 'professor') {
+                window.location.hash = "#dashboard";
+            };
             return false;
         });
         $view.appendTo("#content");

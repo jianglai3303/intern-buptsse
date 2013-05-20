@@ -65,15 +65,31 @@
                 email: "myemailaddress@example.com",
                 phone: "010-62289905"
             },
-            jobs: [{
+        });
+        _(data).extend({
+            position: [{
                 company: {
                     name: "XXXX公司"
                 },
                 title: "攻城师",
+                applied: [{realname: "路人甲", _id: "UserXXX"}],
                 need: 8,
                 created_at_str: "2014-02-03",
-                creator: ""
-            }],
+                creator: {
+                    realname: "厉害的导师"
+                },
+            },{
+                company: {
+                    name: "WWW公司"
+                },
+                title: "攻城师",
+                applied: [{realname: "路人甲", _id: "UserXXX"}],
+                need: 8,
+                created_at_str: "2014-02-03",
+                creator: {
+                    realname: "厉害的导师"
+                },
+            }]
         });
         data.profile.photo = "http://www.gravatar.com/avatar/" + MD5(data.profile.email);
 
