@@ -1,14 +1,5 @@
-table.table.table-bordered.table-striped.table-hover
-  colgroup
-    col.span4
-    col.span8
-  thead
-    tr
-      th 学生
-      th 实习职位
-  tbody
-    each i in student
-      tr
-        td #{i.realname}
-        td #{i.job.company.name} - #{i.job.title}
-          i.icon-chevron-right.pull-right
+each i in student
+  tr
+    td #{i.realname}
+    td #{i.job.company.name} - #{i.job.title}
+      i.icon-chevron-right.pull-right

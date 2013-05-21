@@ -1,4 +1,3 @@
-
 (function (data, $) {
 
     $("#dashboard .sidebar ul li").removeClass('active');
@@ -9,16 +8,29 @@
         $.get('/view/dashboard/student.js', function (code) {
             $view = $(eval(code)(data));
             getView($view);
-            $('tr', $view).click(function () {
-                $("#task-panel").children().remove();
-                $.get('/view/dashboard/intern.js', function (code) {
-                    $view = $(eval(code)(data));
-                    getView($view);
-                    $('button.btn-large', $view).click(createView);
-                });
-                return false;
-            });
+            loadStudentList();
+            //$('tr', $view).click(function () {
+            //getDetail();
+            // });
         });
+    };
+
+    var loadStudentList = function () {
+        $.get('/view/dashboard/student-items.js', function (code) {
+            $view = $(eval(code)(data));
+            $view.appendTo("#table-student");
+            $('tr').click(getDetail);
+        });
+    };
+
+    var getDetail = function () {
+        $("#task-panel").children().remove();
+        $.get('/view/dashboard/intern.js', function (code) {
+            $view = $(eval(code)(data));
+            getView($view);
+            $('button.btn-large', $view).click(createView);
+        });
+        return false;
     };
 
     createView();

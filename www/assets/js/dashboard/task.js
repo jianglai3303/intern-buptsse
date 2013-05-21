@@ -1,3 +1,4 @@
+
 (function (data, $) {
 
     $("#dashboard .sidebar ul li").removeClass('active');
@@ -5,7 +6,7 @@
 
     $("#task-panel").children().remove();
 
-    $.get('/view/dashboard/home.js', function (code) {
+    $.get('/view/dashboard/task.js', function (code) {
         $view = $(eval(code)(data));
         getView($view);
     });
