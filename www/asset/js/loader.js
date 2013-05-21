@@ -68,6 +68,7 @@
         });
         _(data).extend({
             position: [{
+                id: "1",
                 company: {
                     name: "XXXX公司"
                 },
@@ -79,6 +80,7 @@
                     realname: "厉害的导师"
                 },
             },{
+                id: "2",
                 company: {
                     name: "WWW公司"
                 },

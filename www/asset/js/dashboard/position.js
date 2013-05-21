@@ -4,6 +4,8 @@
     $("#dashboard .sidebar ul li").removeClass('active');
     $("#dashboard .sidebar ul li#nav-position").addClass('active');
     
+
+
     var clearView = function () {
         $("#task-panel").children().remove();
     };
@@ -14,14 +16,33 @@
         $view.appendTo("#task-panel");
     };
 
+    var displayPositionItems = function() {  
+        var loadJobList = function() {
+            clearView();
+            $.get('/ui/dashboard/position-apply.js', function (code) {
+                $view = $(eval(code)(data));
+                displayView($view);
+                displayPositionItems(); 
+            });
+        }; 
+        var loadJobTable = function (){
+            $.get('/ui/dashboard/position-items.js', function (code) {
+                $view = $(eval(code)(data));
+                $view.appendTo('#table-position');
+                $('tr').click(viewJob.bind(this, loadJobList));
+            });
+        };
+        loadJobTable();
+    };
+
     if("professor" == data.role && data.phase == 1) {
         var loadJobList = function () {
             clearView();
             $.get('/ui/dashboard/position-manage.js', function (code) {
                 $view = $(eval(code)(data));
                 displayView($view);
+                displayPositionItems();
                 $("button", $view).click(createJob);
-                $("tr", $view).click(createJob);
             });
             return false;
         };
@@ -50,12 +71,13 @@
     }
 
     if(data.phase == 2) {
-        var loadJobList = function () { 
+        var loadJobList = function() {
             clearView();
             $.get('/ui/dashboard/position-apply.js', function (code) {
                 $view = $(eval(code)(data));
                 displayView($view);
-                $('tr', $view).click(viewJob.bind(this, loadJobList));
+                displayPositionItems(); 
+                //$('tr').click(viewJob.bind(this, loadJobList));
             });
         };
         loadJobList();
@@ -110,5 +132,7 @@
             });
         });
     };
+
+    
 
 });

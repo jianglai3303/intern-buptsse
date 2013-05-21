@@ -16,5 +16,17 @@
     .alert.alert-info
       | 下表列出了您发布的所有实习实训职位信息，
       | 点击条目查看志愿实习的学生
-  
-  include position-items 
+  table.table.table-bordered.table-striped.table-hover
+    colgroup
+      col.span6
+      col.span2
+      col.span2
+      col.span2
+    thead
+      tr
+        th 职务
+        if role == 'student'
+          th 导师
+        th 人数
+        th 发布日期
+    tbody#table-position
